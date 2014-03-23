@@ -1,3 +1,8 @@
+@import url(http://fonts.googleapis.com/css?family=Oxygen);
+
+body{
+    font-family: 'Oxygen', sans-serif;
+}
 .btn {
     cursor:pointer;
     color: #ffffff;

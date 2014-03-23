@@ -10,23 +10,35 @@ function getWeather(zip) {
     $.ajax({
       url : "http://api.wunderground.com/api/6acab691999af9a6/geolookup/conditions/q/"+zip+".json",
       dataType : "jsonp",
-      success : function(parsed_json) {
-        var location = parsed_json['location']['city'],
-            temp = parsed_json['current_observation']['temp_f'],
-            weather = parsed_json['current_observation']['weather'],
-            wind_mph =   parsed_json['current_observation']['wind_mph'];
-        if (temp > 60) {
-          $('.answer').text('Yes!');
-        } else {
-          $('.answer').text('Nah, don\'t go');
-        }
-        console.log(weather);
-        console.log(wind_mph);
+      success : function(data) {
 
+        var details = {};
+
+        details.city    = data['location']['city'];
+        details.temp    = data['current_observation']['temp_f'];
+        details.weather = data['current_observation']['weather'];
+        details.wind    = data['current_observation']['wind_mph'];
+
+        $('#answer').text(decide(details));
+
+        $.each(details, function(key, value) {
+           $('#details').append('<li class="'+key+'">'+key+': '+value+'</li>');
+        });
+
+      },
+      error : function(message) {
+        alert(message);
       }
-      });
+    });
 }
 
+function decide(details){
+  answer = 'No';
+
+  
+
+  return answer;
+}
 
 
 });
