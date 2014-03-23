@@ -19,8 +19,9 @@ function getWeather(zip) {
   if (zip.length < 5 || zip.length > 5) {
     $('#answer').text('Invalid Zip');
   } else {
+    var api_key = '6acab691999af9a6';
     $.ajax({
-      url : "http://api.wunderground.com/api/6acab691999af9a6/geolookup/conditions/q/"+zip+".json",
+      url : "http://api.wunderground.com/api/"+api_key+"/geolookup/conditions/q/"+zip+".json",
       dataType : "jsonp",
       success : function(data) {
 
