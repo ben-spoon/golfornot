@@ -2,19 +2,34 @@
 <head>
     <title>Should you golf right now?</title>
     <link rel="stylesheet" href="style.css"/>
+    <meta name="description" content="Decide whether or not to golf right now">
+    <meta name="keywords" content="Golf, Weather, Should, I, Now, Decide, Conditions">
+    <meta name="author" content="Ben Spoon">
+
 </head>
 <body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-49230662-1', 'shouldigolf.com');
+  ga('send', 'pageview');
+
+</script>
 <script src="jquery.js"></script>
 <script src="should_i_golf.js"></script>
 
 
 <div class="decision-wrapper">
     <h2>Enter your zip code</h2>
-    <input type="text" class="zip"><br/><br/>
+    <input type="number" class="zip"><br/><br/>
     <span class="go btn">Let's find out</span>
     <h2 id="answer"></h2>
     <div id="details-wrap">
-        <span class="heres-why">Here's why:</span>
+        <span class="heres-why">Here's why:<br/></span>
+        <span class="weather-img"></span>
         <ul id="details">
         </ul>
     </div>

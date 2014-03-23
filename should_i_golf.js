@@ -3,31 +3,45 @@ $('.go').click(function() {
     var z = $('.zip').val();
     getWeather(z);
 });
+$('.zip').keypress(function (e) {
+    if(e.keyCode == 13) {
+        var z = $('.zip').val();
+        getWeather(z);
+    }
+});
 
 
 
 function getWeather(zip) {
+  $('#details').find('li').remove();
+  $('.weather-img').find('img').remove();
+
+  if (zip.length < 5 || zip.length > 5) {
+    $('#answer').text('Invalid Zip');
+  } else {
     $.ajax({
       url : "http://api.wunderground.com/api/6acab691999af9a6/geolookup/conditions/q/"+zip+".json",
       dataType : "jsonp",
       success : function(data) {
 
-        $('#details').find('li').remove();
 
         var details = {};
 
-        details.city    = data['location']['city'];
-        details.temp    = data['current_observation']['temp_f'];
-        details.weather = data['current_observation']['weather'];
-        details.wind    = data['current_observation']['wind_gust_mph'];
-        details.feels   = data['current_observation']['feelslike_f'];
+        details.City    = data['location']['city'];
+        details.Temperature    = data['current_observation']['temp_f'];
+        details.Weather = data['current_observation']['weather'];
+        details.Wind    = data['current_observation']['wind_gust_mph'];
+        details.FeelsLike   = data['current_observation']['feelslike_f'];
+        details.WeatherImg = data['current_observation']['icon_url'];
 
         $('#answer').text(decide(details));
 
         $.each(details, function(key, value) {
-           $('#details').append('<li class="'+key+'"><strong>'+key+': </strong>'+value+'</li>');
+           if (key != 'WeatherImg'){
+              $('#details').append('<li class="'+key+'"><strong>'+key+': </strong>'+value+'</li>');
+           }
         });
-
+        $('.weather-img').append('<img src="'+details.WeatherImg+'" alt="'+details.Weather+'"/>');
         $('.heres-why').show();
 
       },
@@ -35,6 +49,7 @@ function getWeather(zip) {
         alert(message);
       }
     });
+  }
 }
 
 function decide(details){
@@ -42,7 +57,9 @@ function decide(details){
         no     = 0;
 
     // Check the general conditions to see if it is clear out
-    if (details.weather.toLowerCase() != 'clear') {
+    if (details.Weather.toLowerCase() != 'clear' ||
+        details.Weather.toLowerCase() != 'partly cloudy' ||
+        details.Weather.toLowerCase() != 'scattered clouds') {
         no++;
         yes--;
     } else {
@@ -51,7 +68,7 @@ function decide(details){
     }
 
     // Next check the wind gust speed
-    if (details.wind > 10) {
+    if (details.Wind > 15) {
         no++;
         yes--;
     } else {
@@ -60,7 +77,7 @@ function decide(details){
     }
 
     // Check the temperature, 60 degrees and up is ok
-    if (details.temp >= 60) {
+    if (details.Temp >= 60) {
         yes++;
         no--;
     } else {
@@ -74,7 +91,7 @@ function decide(details){
        is why it carries more weight than just
        temperature alone.
     */
-    if (details.feels >= 60) {
+    if (details.FeelsLike >= 60) {
         yes = yes + 2;
         no  = no - 2;
     } else {
