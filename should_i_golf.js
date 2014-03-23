@@ -12,6 +12,8 @@ function getWeather(zip) {
       dataType : "jsonp",
       success : function(data) {
 
+        $('#details').find('li').remove();
+
         var details = {};
 
         details.city    = data['location']['city'];
@@ -23,7 +25,7 @@ function getWeather(zip) {
         $('#answer').text(decide(details));
 
         $.each(details, function(key, value) {
-           $('#details').append('<li class="'+key+'">'+key+': '+value+'</li>');
+           $('#details').append('<li class="'+key+'"><strong>'+key+': </strong>'+value+'</li>');
         });
 
         $('.heres-why').show();
