@@ -26,6 +26,8 @@ function getWeather(zip) {
            $('#details').append('<li class="'+key+'">'+key+': '+value+'</li>');
         });
 
+        $('.heres-why').show();
+
       },
       error : function(message) {
         alert(message);
@@ -45,7 +47,7 @@ function decide(details){
         no--;
         yes++;
     }
-    
+
     // Next check the wind gust speed
     if (details.wind > 10) {
         no++;
