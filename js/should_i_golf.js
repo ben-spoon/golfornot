@@ -1,13 +1,14 @@
 $(function () {
-$('.go').click(function() {
-    var z = $('.zip').val();
-    getWeather(z);
-});
-$('.zip').keypress(function (e) {
-    if(e.keyCode == 13) {
+    $('.go').on('click', function() {
         var z = $('.zip').val();
         getWeather(z);
-    }
+    });
+    $('.zip').on ('keypress', function (e) {
+        if(e.keyCode == 13) {
+            var z = $('.zip').val();
+            getWeather(z);
+        }
+    });
 
 
 
@@ -117,7 +118,5 @@ function decide(details){
 
 }
 
-
-});
 
 });
