@@ -1,0 +1,13 @@
+
+.icon-wind:before { content: '\e800'; } /* '' */
+.icon-temperatire:before { content: '\e801'; } /* '' */
+.icon-rain:before { content: '\e802'; } /* '' */
+.icon-drizzle:before { content: '\e803'; } /* '' */
+.icon-snow:before { content: '\e804'; } /* '' */
+.icon-cloud-flash:before { content: '\e805'; } /* '' */
+.icon-cloud-wind:before { content: '\e806'; } /* '' */
+.icon-sun:before { content: '\e807'; } /* '' */
+.icon-cloud:before { content: '\e808'; } /* '' */
+.icon-umbrella:before { content: '\e809'; } /* '' */
+.icon-golf:before { content: '\e80a'; } /* '' */
+.icon-location:before { content: '\e80b'; } /* '' */

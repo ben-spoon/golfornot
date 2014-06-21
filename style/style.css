@@ -1,0 +1,105 @@
+@import url(http://fonts.googleapis.com/css?family=Oxygen);
+body{
+    font-family: 'Oxygen', sans-serif;
+    margin:0;
+    padding: 0;
+    background: #2ecc71;
+    color:#FFF;
+}
+.decision-wrapper {
+    width:100%;
+}
+.should-i-golf {
+    width:50%;
+    margin: 0 auto;
+}
+.heres-why {
+    display: none;
+    font-size: 20px;
+    font-weight: 600;
+}
+.details-wrap {
+    width:100%;   
+}
+.details {
+    width:540px;
+    margin: 0 auto;
+    font-size:35px; 
+}
+.details ul {
+    list-style: none;
+    padding:0;
+}
+.details li {
+    margin-left: 110px;
+}
+.btn {
+    cursor:pointer;
+    color: #ffffff;
+    background-color: #3498db;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;
+    transition: border .25s linear, color .25s linear, background-color .25s linear;
+    display: block;
+    padding: 10px 1px;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.471;
+    border-radius: 6px;
+    text-align: center;
+    margin: 0 40.5%;
+    min-width: 100px;
+}
+.zip-wrap {
+    text-align: center;
+    padding:10px 0;
+}
+input {
+    border: 2px solid #bdc3c7;
+    color: #34495e;
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.467;
+    padding: 8px 12px;
+    height: 42px;
+    -webkit-appearance: none;
+    border-radius: 6px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;
+    transition: border .25s linear, color .25s linear, background-color .25s linear;
+    text-align: center;
+}
+.title {
+    font-size: 30px;
+    padding: 5px 15px 20px 0;
+    text-align: center;
+}
+.icon {
+    font-family: 'weather';
+    display:none;
+    font-size: 50px;
+    padding:5px 15px;
+    width:75px;
+}
+.icon-cloud {
+    color: #ecf0f1;
+}
+.icon-location {
+    color: #c0392b;
+}
+.icon-temperatire {
+    color:#000;
+}
+.icon-wind {
+    color:#3498db;
+}
+.answer {
+    text-align: center;
+    color:#000;
+    padding-top:40px;
+}
+@media (max-width:) {
+
+}

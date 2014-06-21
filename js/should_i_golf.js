@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function () {
 $('.go').click(function() {
     var z = $('.zip').val();
     getWeather(z);
@@ -8,7 +8,7 @@ $('.zip').keypress(function (e) {
         var z = $('.zip').val();
         getWeather(z);
     }
-});
+
 
 
 
@@ -29,21 +29,18 @@ function getWeather(zip) {
         var details = {};
 
         details.City    = data['location']['city'];
-        details.Temperature    = data['current_observation']['temp_f'];
+        details.Temperature    = data['current_observation']['temp_f'] + '&deg;';
         details.Weather = data['current_observation']['weather'];
-        details.Wind    = data['current_observation']['wind_gust_mph'];
+        details.Wind    = data['current_observation']['wind_string'] + ' ' + data['current_observation']['wind_gust_mph'] + ' mph';
         details.FeelsLike   = data['current_observation']['feelslike_f'];
-        details.WeatherImg = data['current_observation']['icon_url'];
 
-        $('#answer').text(decide(details));
-
-        $.each(details, function(key, value) {
-           if (key != 'WeatherImg'){
-              $('#details').append('<li class="'+key+'"><strong>'+key+': </strong>'+value+'</li>');
-           }
-        });
-        $('.weather-img').append('<img src="'+details.WeatherImg+'" alt="'+details.Weather+'"/>');
+        $('.answer').text(decide(details));
+        $('.temperature').append(details.Temperature);
+        $('.location').append(details.City);
+        $('.weather').append(details.Weather);
+        $('.wind').append(details.Wind);
         $('.heres-why').show();
+        $('.icon').css('display', 'inline-block');
 
       },
       error : function(message) {
@@ -114,7 +111,7 @@ function decide(details){
     var answer = Math.max(yes,no);
     switch(answer){
       case yes:
-        return 'Go go go!';
+        return 'I would go if I were you!';
       case no:
         return 'Not right now';
     }
@@ -124,3 +121,4 @@ function decide(details){
 
 });
 
+});
