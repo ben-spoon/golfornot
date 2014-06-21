@@ -13,8 +13,7 @@ $('.zip').keypress(function (e) {
 
 
 function getWeather(zip) {
-  $('#details').find('li').remove();
-  $('.weather-img').find('img').remove();
+  $('.details li span').text('');
 
   if (zip.length < 5 || zip.length > 5) {
     $('#answer').text('Invalid Zip');
@@ -35,10 +34,10 @@ function getWeather(zip) {
         details.FeelsLike   = data['current_observation']['feelslike_f'];
 
         $('.answer').text(decide(details));
-        $('.temperature').append(details.Temperature);
-        $('.location').append(details.City);
-        $('.weather').append(details.Weather);
-        $('.wind').append(details.Wind);
+        $('.temperature span').append(details.Temperature);
+        $('.location span').append(details.City);
+        $('.weather span').append(details.Weather);
+        $('.wind span').append(details.Wind);
         $('.heres-why').show();
         $('.icon').css('display', 'inline-block');
 
