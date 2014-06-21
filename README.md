@@ -15,5 +15,5 @@ The answer, at the moment, is based on a few things:
   * Past 3pm but before 6pm? 9 holes is probably for you.
   * Before 6am? Stop being awake and wait to golf...
 
-#### Demo: 
+#### Live Site: 
 http://shouldigolf.com
