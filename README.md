@@ -1,4 +1,4 @@
-golfornot
+Golf Or Not?
 =========
 Determines if the weather is suitable to play golf or not 
 ## How it decides
