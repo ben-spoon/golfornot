@@ -31,7 +31,7 @@ function getWeather(zip) {
         details.City    = data['location']['city'];
         details.Temperature    = data['current_observation']['temp_f'] + '&deg;';
         details.Weather = data['current_observation']['weather'];
-        details.Wind    = data['current_observation']['wind_string'] + ' ' + data['current_observation']['wind_gust_mph'] + ' mph';
+        details.Wind    = data['current_observation']['wind_string'];
         details.FeelsLike   = data['current_observation']['feelslike_f'];
 
         $('.answer').text(decide(details));
@@ -48,6 +48,12 @@ function getWeather(zip) {
       }
     });
   }
+}
+
+function getTime() {
+    var date = new Date();
+    var current_hour = date.getHours();
+    return current_hour;
 }
 
 function decide(details){
@@ -97,7 +103,25 @@ function decide(details){
         yes = yes - 2;
     }
 
-
+    // If it is past 6pm no golf today
+    // If it is before 4pm you can probably get a round in
+    // If it is past 3pm but before 6pm, you can probably only get 9 holes in
+    // If it is before 6am you shouldn't be awake.
+    var time = getTime(),
+        timeAnswer = '';
+    console.log(time);
+    if (time < 6) {
+        timeAnswer =  'It\'s too early!, try again later ';
+    } else if (time > 6 && time < 16) {
+        yes = yes + 2;
+        timeAnswer = 'You can probably get 18 in.'
+    } else if (time > 15 && time < 18) {
+        yes++;
+        timeAnswer = 'You can probably only get in 9.'
+    } else if (time > 18) {
+        no = 100;
+        timeAnswer =  'It\'s probably too dark to golf so...'
+    }
 
 
 
@@ -111,9 +135,9 @@ function decide(details){
     var answer = Math.max(yes,no);
     switch(answer){
       case yes:
-        return 'I would go if I were you!';
+        return timeAnswer + ' The weather looks good';
       case no:
-        return 'Not right now';
+        return timeAnswer + ' Not right now';
     }
 
 }
