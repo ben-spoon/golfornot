@@ -1,0 +1,28 @@
+{
+  "name": "golfornot",
+  "version": "0.0.0",
+  "description": "Decide whether or not to go golfing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/spoonben/golfornot.git"
+  },
+  "keywords": [
+    "golf",
+    "weather"
+  ],
+  "author": "Ben Spoon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spoonben/golfornot/issues"
+  },
+  "homepage": "https://github.com/spoonben/golfornot",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-express": "^1.4.1"
+  }
+}
