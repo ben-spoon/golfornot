@@ -1,6 +1,8 @@
 Golf Or Not?
 =========
 Determines if the weather is suitable to play golf or not 
+
+_Requires Node_
 ## How it decides
 The answer, at the moment, is based on a few things:
 * Temp
@@ -14,6 +16,13 @@ The answer, at the moment, is based on a few things:
   * Before 4pm? Get a whole 18 in.
   * Past 3pm but before 6pm? 9 holes is probably for you.
   * Before 6am? Stop being awake and wait to golf...
+
+## To start the app
+``` npm install ```
+
+``` grunt server ```
+
+Then navigate to ``` http://localhost:3001 ```
 
 #### Live Site: 
 http://shouldigolf.com
